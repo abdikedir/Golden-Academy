@@ -25,7 +25,7 @@ const EnhancedLoginForm = () => {
     submitSuccess,
     clearSuccess
   } = useEnhancedForm({
-    defaultValues: { email: "", password: "" },
+    defaultValues: { email: "admin@golden.edu", password: "Admin123@" },
     onSubmit: async (values) => {
       await login(values);
       navigate("/dashboard");

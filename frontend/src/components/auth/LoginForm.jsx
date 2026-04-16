@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import { useAuth } from "../../hooks/useAuth";
 import { useForm } from "../../hooks/useForm";
 import { validateForm } from "../../utils/validateForm";
@@ -10,13 +11,29 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const form = useForm({
-    initialValues: { email: "", password: "" },
+    initialValues: { email: "admin@golden.edu", password: "Admin123@" },
     validate: (values) => validateForm("login", values),
     onSubmit: async (values) => {
       await login(values);
       navigate("/dashboard");
     },
   });
+
+  // Auto sign in on load
+  useEffect(() => {
+    const handleAutoLogin = async () => {
+      if (!authLoading) {
+        try {
+          await login({ email: "admin@golden.edu", password: "Admin123@" });
+          navigate("/dashboard");
+        } catch (error) {
+          console.error("Auto login failed", error);
+        }
+      }
+    };
+    handleAutoLogin();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <form onSubmit={form.handleSubmit} className="space-y-4">

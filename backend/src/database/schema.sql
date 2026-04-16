@@ -6,7 +6,6 @@
 -- ============================
 -- TABLES
 -- ============================
-WHERE se.class_id = input_class_id
 
 CREATE TABLE roles (
   role_id SERIAL PRIMARY KEY,
@@ -254,7 +253,7 @@ $$;
 
 -- 1.4 Publish Class Results
 CREATE OR REPLACE FUNCTION publish_class_results(
-    input_class_id INT,
+    input_class_id INT
     -- input_term_id INT
 )
 RETURNS VOID

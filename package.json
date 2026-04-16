@@ -1,0 +1,22 @@
+{
+  "name": "sarm",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm install && npm --prefix backend install && npm --prefix frontend install --include=dev && npm --prefix backend run build --if-present && npm --prefix frontend run build",
+    "start": "npm --prefix backend run start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mulu31/GoldenAcademy-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/mulu31/GoldenAcademy-/issues"
+  },
+  "homepage": "https://github.com/mulu31/GoldenAcademy-#readme"
+}
